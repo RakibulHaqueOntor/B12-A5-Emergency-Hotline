@@ -11,6 +11,7 @@ document.getElementById('call-1').addEventListener('click',function(){
   const coin = parseInt(innerText('coins'))
   if(coin>=20){
     coinLeft = coin-20;
+    document.getElementById('coins').innerText = coinLeft;
   const cart = document.getElementById('right_div')
   const newCart = document.createElement('div');
   newCart.innerHTML=
@@ -31,7 +32,7 @@ document.getElementById('call-1').addEventListener('click',function(){
   }
 })
 document.getElementById('heart').addEventListener('click',function(){
-  console.log('button is clicked')
+  // console.log('button is clicked')
   const heart = parseInt(innerText('hearts'))
   numberOfHearts = heart+1;
   document.getElementById('hearts').innerText=numberOfHearts;
