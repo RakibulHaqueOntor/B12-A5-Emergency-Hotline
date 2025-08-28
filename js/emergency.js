@@ -4,39 +4,68 @@ function innerText(id){
   const text = element.innerText;
   return text;
 }
-document.getElementById('call-1').addEventListener('click',function(){
-  //  console.log('button clicked')
-  const title = innerText('card-1-title');
-  const number=innerText('card-1-number');
-  const coin = parseInt(innerText('coins'))
-  if(coin>=20){
-    coinLeft = coin-20;
-    document.getElementById('coins').innerText = coinLeft;
-  const cart = document.getElementById('right_div')
-  const newCart = document.createElement('div');
-  newCart.innerHTML=
-  `<div class="h-[86px] w-[352px] rounded-[8px] flex justify-between       items-center bg-[#fafafa] mt-[16px]">
-        <div>
-          <p>${title}</p>
-          <p>${number}</p>
-        </div>
-        <div>
-          <p>11:36:58 AM</p>
-        </div>
-      </div>`;
-   cart.appendChild(newCart);   
+const buttons = document.getElementsByClassName('call_btn')
+for(let btn of buttons){
+  btn.addEventListener('click',function(){
+    // console.log("btn clicked");
+    const title = btn.parentNode.parentNode.children[1].children[0].innerText
+    const sub_title = btn.parentNode.parentNode.children[1].children[1].innerText
+    const phone_number = btn.parentNode.parentNode.children[2].children[0].innerText
+    let today = new Date();
+    let present_time = today.toLocaleTimeString(); 
+    const total_coin = parseInt(btn.parentNode.parentNode.parentNode.parentNode.parentNode.children[0].children[0].children[1].children[1].children[0].innerText)
+    if(total_coin>=20){
+      alert('📞Calling' +" "+ sub_title +" "+ phone_number)
+      coinLeft = total_coin-20;
+      document.getElementById('coins').innerText = coinLeft;
+      console.log(total_coin);
+      const cart = document.getElementById('right_div')
+      const newCart = document.createElement('div');
+      newCart.innerHTML=
+      `<div class="call h-[86px] w-[352px] rounded-[8px] flex justify-between       items-center bg-[#fafafa] mt-[16px]">
+            <div>
+              <p>${title}</p>
+              <p>${phone_number}</p>
+            </div>
+            <div>
+              <p>${present_time}</p>
+            </div>
+          </div>`;
+      cart.appendChild(newCart);  
+    }
+    else{
+      alert("❌তোমার কাছে পর্যাপ্ত কয়েন নেই। ফোন করার জন্য ২০টি কয়েন প্রয়োজন।");
+    }
   }
-  
-  else{
-    alert("you don't have enough coin");
-  }
-})
-document.getElementById('heart').addEventListener('click',function(){
-  // console.log('button is clicked')
-  const heart = parseInt(innerText('hearts'))
-  numberOfHearts = heart+1;
-  document.getElementById('hearts').innerText=numberOfHearts;
-})
+)}
+    const clear = document.getElementById('clear_btn') 
+    clear.addEventListener('click',function(){
+    console.log('button clicked');
+    document.getElementsByClassName('call').display = 'hidden';
+    
+  })
+  const copyS = document.getElementsByClassName('copy_btn')
+for(let cpy of copyS){
+  cpy.addEventListener('click',function(){
+    
+    const number = cpy.parentNode.parentNode.children[2].children[0].innerText
+    console.log(number)
+    alert("নম্বরটি কপি হয়েছে " + number);
+    const total_copy = parseInt(cpy.parentNode.parentNode.parentNode.parentNode.parentNode.children[0].children[0].children[1].children[2].children[0].childNodes[0].innerText);
+    numberOfCopy = total_copy+1;
+    document.getElementById('copy').innerText=numberOfCopy;   
+  })
+}
+
+const hearts = document.getElementsByClassName('heart')
+for(let hrt of hearts){
+  hrt.addEventListener('click',function(){
+    const total_heart = parseInt(hrt.parentNode.parentNode.parentNode.parentNode.parentNode.children[0].children[0].children[1].children[0].children[0].innerText);
+    numberOfHearts = total_heart+1;
+    document.getElementById('hearts').innerText=numberOfHearts;   
+  })
+}
+
   
 
 
