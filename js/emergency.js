@@ -28,7 +28,7 @@ for(let btn of buttons){
               <p class="text-[18px] text-gray-500">${phone_number}</p>
             </div>
             <div>
-              <p class = "text-[18px] font-medium">${present_time}</p>
+              <p class = "text-[18px] font-medium text-gray-500">${present_time}</p>
             </div>
           </div>`;
       cart.appendChild(newCart);  
