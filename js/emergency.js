@@ -39,10 +39,7 @@ for(let btn of buttons){
   }
 )}
     const clear = document.getElementById('clear_btn') 
-    clear.addEventListener('click',function(){
-      // console.log("clicked")
-    // const newCart = document.createElement('div');
-    //   newCart.innerHTML="";
+    clear.addEventListener('click',function(){ 
     const cart = document.getElementById('cart_container')
     cart.innerHTML = "";
     
